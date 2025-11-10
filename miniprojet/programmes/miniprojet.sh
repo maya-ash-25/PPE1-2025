@@ -10,6 +10,23 @@ fi
 Fichier_urls="$1"
 Num_ligne=0
 
+echo "<!DOCTYPE html>"
+echo "<html>"
+echo "<head>"
+echo "    <meta charset="UTF-8">"
+echo "    <title>Tableau des URLs - Projet Robot</title>"
+echo "</head>"
+echo "<body>"
+echo "    <h1>Tableau des URLs analysées</h1>"
+echo "    <table border="1">"
+echo "        <tr>"
+echo "            <th>Numéro</th>"
+echo "            <th>URL</th>"
+echo "            <th>Code HTTP</th>"
+echo "            <th>Encodage</th>"
+echo "            <th>Nombre de mots</th>"
+echo "        </tr>"
+
 while read -r line;
 do
 	Num_ligne=$(expr $Num_ligne + 1)
@@ -23,11 +40,21 @@ do
 	fi 
 	nb_mots=$(lynx -dump -nolist "$line" | wc -w)
 
+	echo "        <tr>"
+    echo "            <td>${Num_ligne}</td>"
+    echo "            <td>${line}</td>"
+    echo "            <td>${code}</td>"
+    echo "            <td>${encodage}</td>"
+    echo "            <td>${nb_mots}</td>"
+    echo "        </tr>"
 
 
-	echo -e "${Num_ligne}\t${line}\t${code}\t${encodage}\t${nb_mots}\n" # -e permet de ne pas interpréter "\" comme un moyen pour échapper le scaractères spéciaux
 
 	sleep 1
 	
 done < $Fichier_urls;
+
+echo "    </table>"
+echo "</body>"
+echo "</html>"
 
