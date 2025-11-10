@@ -14,14 +14,14 @@ while read -r line;
 do
 	Num_ligne=$(expr $Num_ligne + 1)
 
-	code=$(curl -s -o /dev/null -w "%{http_code}" "$line")
+	code=$(curl -I -L -s -o /dev/null -w "%{http_code}" "$line")
 
-	encodage=$(curl -s -I "$line" | grep -i "content-type" | grep -o -E "charset=[^ ]+" | tr -d '\r\n' | cut -d= -f2)
+	encodage=$(curl -I -L -s "$line" | grep -i "content-type" | grep -o -E "charset=[^ ]+" | tr -d '\r\n' | cut -d= -f2 | head -n 1)
     if [ -z "$encodage" ] 
 		then
 			encodage="not mentionned"
 	fi 
-	nb_mots=$(curl -s $line | wc -w)
+	nb_mots=$(lynx -dump -nolist "$line" | wc -w)
 
 
 

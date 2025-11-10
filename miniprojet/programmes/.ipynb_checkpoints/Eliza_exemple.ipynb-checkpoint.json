@@ -1,0 +1,729 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# TD chatbot : recoder Eliza \n",
+    "Contact : Andrea Briglia\n",
+    "\n",
+    "Crédits : Alice Millour"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Étape 1 : Intéragir avec le programme *via* le clavier :\n",
+    "\n",
+    "1. Quelle est la fonction qui permet de saisir une chaîne au clavier et de la stocker dans une variable ?\n",
+    "2. Utilisez-la pour stocker une valeur saise au clavier dans une variable `replique`. Affichez la variable."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " CC\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "CC\n"
+     ]
+    }
+   ],
+   "source": [
+    "replique = input()\n",
+    "print(replique)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "## Étape 2 : Premier contact \n",
+    "\n",
+    "Définissez la fonction `discussion` qui \n",
+    "   1. affiche la phrase \"Bonjour, quoi de neuf aujourd'hui ?\"\n",
+    "   2. stocke dans la variable `réplique` une phrase saisie au clavier par l'utilisateur du programme\n",
+    "   3. répond \"C'est tout ?\"\n",
+    "   \n",
+    "Testez le fonctionnement de la fonction."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Bonjour, quoi de neuf aujourd'hui ?\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " HH\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "C'est tout ?\n"
+     ]
+    }
+   ],
+   "source": [
+    "def discussion():\n",
+    "    print(\"Bonjour, quoi de neuf aujourd'hui ?\")\n",
+    "    replique=input()\n",
+    "    print(\"C'est tout ?\")\n",
+    "    \n",
+    "discussion()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Comme vous avez pu le constater, vous ne pouvez pas répondre au programme.\n",
+    "\n",
+    "## Étape 3 : Vers un peu plus d'interactivité\n",
+    "\n",
+    "Modifiez la fonction `discussion` pour que\n",
+    "   1. la demande de saisie se répète *tant que* l'utilisateur ne saisit pas la phrase \"J'en ai marre.\"\n",
+    "   2. le programme affiche \"Ok, à bientôt !\" si l'utilisateur saisit \"J'en ai marre.\"\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Bonjour, quoi de neuf aujourd'hui ?\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " HH\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "C'est tout ?\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " J\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "C'est tout ?\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " K\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "C'est tout ?\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " J'en ai marre\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "C'est tout ?\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " J'en ai marre.\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Ok, à bientôt\n"
+     ]
+    }
+   ],
+   "source": [
+    "def discussion():\n",
+    "    print(\"Bonjour, quoi de neuf aujourd'hui ?\")\n",
+    "    statement=input()\n",
+    "    # Le programme demande un input \n",
+    "    # *tant que* la chaîne de caractères\n",
+    "    # \"j'en ai marre.\" n'a pas été saisie\n",
+    "    while statement != \"J'en ai marre.\" : \n",
+    "        print(\"C'est tout ?\")\n",
+    "        statement=input()\n",
+    "    # En sortie de la boucle while, \n",
+    "    # statement vaut \"J'en ai marre.\"\n",
+    "    print(\"Ok, à bientôt\")\n",
+    "    \n",
+    "discussion()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Vous avez mis en place une première interaction, mais le programme répond toujours la même chose quelle que soit la phrase saisie au clavier. \n",
+    "\n",
+    "## Étape 4  : Des réponses plus variées... \n",
+    "   1. Creez une liste de réponses possibles `liste_reponses` qui contient trois réponses possibles que peut faire le programme à n'importe quelle phrase saisie au clavier.\n",
+    "   2. Quelle est la librairie python qui gère l'aléatoire ? Trouvez la fonction qui permet de choisir un élément au hasard dans une liste et importez la.\n",
+    "   2. Modifiez la fonction `discussion` pour que le programme affiche une réponse au hasard dans la liste `liste_reponses`.\n",
+    "   \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Bonjour, quoi de neuf aujourd'hui ?\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " g\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "D'accord.\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " j\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "C'est tout ?\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " d\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "C'est tout ?\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Je pense que je suis beau\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Mmh, intéressant\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Je pense que je suis beau\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "C'est tout ?\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " J'en ai marre.\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Ok, à bientôt\n"
+     ]
+    }
+   ],
+   "source": [
+    "from random import choice\n",
+    "\n",
+    "liste_reponses = [\"D'accord.\",\"Mmh, intéressant\", \"C'est tout ?\"]\n",
+    "\n",
+    "def discussion():\n",
+    "    print(\"Bonjour, quoi de neuf aujourd'hui ?\")\n",
+    "    statement=input()\n",
+    "    while statement != \"J'en ai marre.\" : \n",
+    "        reponse = choice(liste_reponses)\n",
+    "        print(reponse)\n",
+    "        statement=input()\n",
+    "    print(\"Ok, à bientôt\")\n",
+    "    \n",
+    "discussion()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Étape 5  : Le chatbot perroquet \n",
+    "   1. Modifiez la fonction `discussion` pour que, si la réplique saisie par l'utilisateur commence par \"Je pense que...\" le programme réponde \"Tu penses que...\" en répétant la phrase. \n",
+    "      \n",
+    "      Par exemple, si l'utilisateur saisit : \"Je pense que le ciel est bleu\", le programme doit répondre \"Tu penses que le ciel est bleu\". \n",
+    "   \n",
+    "Pour cela, vous utiliserez la fonction `re.match` pour stocker dans une variable `pensee` ce qui suit \"Je pense que\" dans la réplique saisie par l'utilisateur.\n",
+    "La fonction `group()` appliquée à la variable `pensee` vous permet d'accéder au contenu qui a été stocké.\n",
+    "\n",
+    "   "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Bonjour, quoi de neuf aujourd'hui ?\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " gg\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "C'est tout ?\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " gg\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Mmh, intéressant\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " ff\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "D'accord.\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Je pense que je suis beau\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Tu penses que je suis beau\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Je pense que miao\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Tu penses que miao\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " stop\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Ok, à bientôt\n"
+     ]
+    }
+   ],
+   "source": [
+    "import re\n",
+    "\n",
+    "def discussion():\n",
+    "    print(\"Bonjour, quoi de neuf aujourd'hui ?\")\n",
+    "    statement=input()\n",
+    "    while statement != \"stop\" : \n",
+    "        pensee = re.match(\"Je pense que (.*)\",statement, re.IGNORECASE)\n",
+    "        if pensee :\n",
+    "            print(\"Tu penses que \" + pensee.group(1))\n",
+    "            statement=input()\n",
+    "        else:\n",
+    "            reponse = choice(liste_reponses)\n",
+    "            print(reponse) \n",
+    "            statement=input()\n",
+    "    print(\"Ok, à bientôt\")\n",
+    "    \n",
+    "discussion()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Étape 5bis  : Le chatbot perroquet \n",
+    "   1. Modifiez la variable pensée pour qu'elle capture les répliques du type : \"Je pense que *le ciel est bleu* mais pas que *la Terre est ronde*\". Dans ces cas, le programme doit faire une réponse du type : \n",
+    "   \"Tu penses que *le ciel est bleu*, mais tu ne veux pas que je croie que *la Terre est ronde*\" \n",
+    "   \n",
+    "Que se passe-t-il si vous saisissez \"Je pense que le ciel est bleu.\" ?\n",
+    "   "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Bonjour, quoi de neuf aujourd'hui ?\n"
+     ]
+    }
+   ],
+   "source": [
+    "import re\n",
+    "\n",
+    "def discussion():\n",
+    "    print(\"Bonjour, quoi de neuf aujourd'hui ?\")\n",
+    "    statement=input()\n",
+    "    while statement != \"stop\" : \n",
+    "        pensee = re.match(\"Je pense que (.*) mais pas que (.*)\",statement)\n",
+    "        if pensee:\n",
+    "            print(\"Tu penses que {}, mais tu ne veux pas que je croie que {}\".format(pensee.group(1),pensee.group(2)))\n",
+    "            statement=input()\n",
+    "        else:\n",
+    "            reponse = choice(liste_reponses)\n",
+    "            print(reponse)\n",
+    "            statement=input()\n",
+    "    print(\"Ok, à bientôt\")\n",
+    "\n",
+    "discussion()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Étape 6  :  À chaque réplique sa réponse\n",
+    "\n",
+    "Pour que le programme puisse avoir des réponses différentes pour chaque réplique, nous allons créer une table de correspondances `correspondances`.\n",
+    "\n",
+    "Chaque élément de `correspondances` est une liste de deux éléments. Le premier élément est un motif de réplique pouvant être saisie par l'utilisateur. Le second élément est une liste de réponses possibles pour le programme.\n",
+    "\n",
+    "Testez le programme ci-dessous en écrivant une phrase commençant par \"Je m'appelle ...\".\n",
+    "\n",
+    "Remarquez l'utilisation de l'instruction `break`. À quoi sert cette instruction ?\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import re\n",
+    "correspondances = [\n",
+    "    # première correspondance : \n",
+    "    [r'Je m\\'appelle (\\w+)', [\"Bonjour {0}\", \"Salut {0}\"]]\n",
+    "]\n",
+    "\n",
+    "def discussion():\n",
+    "    print(\"Bonjour, quoi de neuf aujourd'hui ?\")\n",
+    "    statement=input()\n",
+    "    while statement != \"stop\" : \n",
+    "        for motif, reponses in correspondances :\n",
+    "            # On parcourt la liste des correspondances. \n",
+    "            # À chaque itération, motif vaut une des répliques possibles\n",
+    "            # et reponses vaut la liste des réponses possible\n",
+    "            match = re.match(motif,statement)\n",
+    "            if match:\n",
+    "                reponse = choice(reponses).format(match.group(1))\n",
+    "                break;\n",
+    "            else:\n",
+    "                reponse = choice(liste_reponses)\n",
+    "                break;\n",
+    "        print(reponse)\n",
+    "        statement=input()\n",
+    "    print(\"Ok, à bientôt\")\n",
+    "    \n",
+    "discussion()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Étape 6  :  À chaque réplique sa réponse (2)\n",
+    "\n",
+    "Complétez le code ci-dessus pour que, si vous donnez votre prénom et votre nom de famille sous la forme \"Je m'appelle X Y\", le programme réponde : \n",
+    "\n",
+    "\"Je connais ce nom ! Êtes-vous de la famille de Jean-Paul Y ?\" ou \"X Y... Ce nom ne me dit rien... \" \n",
+    "\n",
+    "Attention : Votre programme doit prendre en compte les cas où un motif est reconnu (\"Je m'appelle X\") ET où deux motifs sont reconnus (\"Je m'appelle X Y\"). L'ordre des entrées du tableau `correspondances` importe-t-il ?\n",
+    "\n",
+    "Aide : Utilisez une structure conditionnelle pour séparer les différents cas. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import re\n",
+    "correspondances = [\n",
+    "    [r'Je m\\'appelle (\\w+) (\\w+)', [\"Je connais ce nom, êtes-vous de la famille de Jean-Paul {1} ?\", \"{0} {1}... Ce nom ne me dit rien...\"]],   \n",
+    "    [r'Je m\\'appelle (\\w+)', [\"Bonjour {0}\", \"Salut {0}\"]],\n",
+    "]\n",
+    "\n",
+    "def discussion():\n",
+    "    print(\"Bonjour, quoi de neuf aujourd'hui ?\")\n",
+    "    statement=input()\n",
+    "    while statement != \"stop\" : \n",
+    "        for motif, reponses in correspondances :\n",
+    "            match = re.match(motif,statement)\n",
+    "            if match :\n",
+    "                if len(match.groups()) == 1:\n",
+    "                    reponse = choice(reponses).format(match.group(1))\n",
+    "                    break;\n",
+    "                if len(match.groups()) == 2:\n",
+    "                    reponse = choice(reponses).format(match.group(1), match.group(2))\n",
+    "                    break;\n",
+    "            else:\n",
+    "                reponse = choice(liste_reponses)\n",
+    "        print(reponse)\n",
+    "        statement=input()\n",
+    "    print(\"Ok, à bientôt\")\n",
+    "    \n",
+    "discussion()\n",
+    "\n",
+    "#               "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Étape 7  :  répéter intelligemment\n",
+    "Reprenez le programme de l'étape 5bis et complétez-le avec un tableau de correspondances. Faites en sorte que les répliques :\n",
+    "\n",
+    "- Je pense que X \n",
+    "- Je pense que X mais pas que Y\n",
+    "\n",
+    "soient prises en compte.\n",
+    "\n",
+    "Testez votre fonction avec la phrase \"Je pense que je suis malade\" \n",
+    "\n",
+    "Quel est le problème ? Que faudrait-il modifier pour éviter ce problème ? Quelle(s) solution(s) voyez-vous ? "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Bonjour, quoi de neuf aujourd'hui ?\n",
+      "J\n"
+     ]
+    },
+    {
+     "ename": "NameError",
+     "evalue": "name 'choice' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[1;32mIn[1], line 31\u001b[0m\n\u001b[0;32m     28\u001b[0m         statement\u001b[38;5;241m=\u001b[39m\u001b[38;5;28minput\u001b[39m()\n\u001b[0;32m     29\u001b[0m     \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mOk, à bientôt\u001b[39m\u001b[38;5;124m\"\u001b[39m)\n\u001b[1;32m---> 31\u001b[0m discussion()\n",
+      "Cell \u001b[1;32mIn[1], line 26\u001b[0m, in \u001b[0;36mdiscussion\u001b[1;34m()\u001b[0m\n\u001b[0;32m     24\u001b[0m             \u001b[38;5;28;01mbreak\u001b[39;00m;\n\u001b[0;32m     25\u001b[0m     \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[1;32m---> 26\u001b[0m         reponse \u001b[38;5;241m=\u001b[39m choice(liste_reponses)\n\u001b[0;32m     27\u001b[0m \u001b[38;5;28mprint\u001b[39m(reponse)\n\u001b[0;32m     28\u001b[0m statement\u001b[38;5;241m=\u001b[39m\u001b[38;5;28minput\u001b[39m()\n",
+      "\u001b[1;31mNameError\u001b[0m: name 'choice' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "import re\n",
+    "correspondances = [\n",
+    "    [r'Je m\\'appelle (\\w+) (\\w+)', [\"Je connais ce nom, êtes-vous de la famille de Jean-Paul {1} ?\", \"{0} {1}... Ce nom ne me dit rien...\"]],   \n",
+    "    [r'Je m\\'appelle (\\w+)', [\"Bonjour {0}\", \"Salut {0}\"]],\n",
+    "    [r'Je pense que (.*) mais pas que (.*)', [\"Tu penses que {0}, mais tu ne veux pas que je croie que {1}\"]], \n",
+    "    [r'Je pense que (.*)', [\"Tu penses que {0}\"]], \n",
+    "]\n",
+    "\n",
+    "def discussion():\n",
+    "    print(\"Bonjour, quoi de neuf aujourd'hui ?\")\n",
+    "    statement=input()\n",
+    "    while statement != \"stop\" : \n",
+    "        for motif, reponses in correspondances :\n",
+    "            # On parcourt la liste des correspondances. \n",
+    "            # À chaque itération, motif vaut une des répliques possibles\n",
+    "            # et reponses vaut la liste des réponses possible\n",
+    "            match = re.match(motif,statement)\n",
+    "            if match:\n",
+    "                if len(match.groups()) == 1:\n",
+    "                    reponse = choice(reponses).format(match.group(1))\n",
+    "                    break;\n",
+    "                if len(match.groups()) == 2:\n",
+    "                    reponse = choice(reponses).format(match.group(1), match.group(2))\n",
+    "                    break;\n",
+    "            else:\n",
+    "                reponse = choice(liste_reponses)\n",
+    "        print(reponse)\n",
+    "        statement=input()\n",
+    "    print(\"Ok, à bientôt\")\n",
+    "\n",
+    "discussion()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
