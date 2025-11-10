@@ -1,12 +1,12 @@
 # Journal de bord du projet encadré
-##
-## Pour m'entrainer à la mise en application des commandes vues en cours, j'ai essayé de reproduire les étapes faites en cours en créant un fichier test nommé essai-2---PPE1. Pour cela j'ai utilisé la commande git clone suivie de l'url ssh du fichier. Après cela, je suis allée dans le fichier avec la commande cd. Pour apporter des modifications j'ai utilisé [ echo .... >> README.md]. Pour cette commande je n'ai pas compris si ce qu'on écrivait  entre  seraient les modifications qui allaient apparaitre sur le fichier, après l'utilisation de la commande git push. Par ailleurs, la deuxième difficulté que j'ai rencontré, c'est de ne pas savoir ce que je devais mentionner entre  lors de la commande git commit -m .... Malgré ces incompréhensions, j'ai tout de même réussie à refaire toutes les étapes à la maison, puis j'ai entamé les exercices pour refaire les mêmes commandes
+## 
+Pour m'entrainer à la mise en application des commandes vues en cours, j'ai essayé de reproduire les étapes faites en cours en créant un fichier test nommé essai-2---PPE1. Pour cela j'ai utilisé la commande git clone suivie de l'url ssh du fichier. Après cela, je suis allée dans le fichier avec la commande cd. Pour apporter des modifications j'ai utilisé [ echo .... >> README.md]. Pour cette commande je n'ai pas compris si ce qu'on écrivait  entre  seraient les modifications qui allaient apparaitre sur le fichier, après l'utilisation de la commande git push. Par ailleurs, la deuxième difficulté que j'ai rencontré, c'est de ne pas savoir ce que je devais mentionner entre  lors de la commande git commit -m .... Malgré ces incompréhensions, j'ai tout de même réussie à refaire toutes les étapes à la maison, puis j'ai entamé les exercices pour refaire les mêmes commandes
 Après avoir relu et refait les commandes à plusieurs reprises, je suppose que ce qu'on écrit entre  dans la commande git commit -m ..., n'est que le nom qu'on donne au add, mais je ne suis pas sûre. En conclusion, j'ai pu reproduire toutes les commandes pour manipuler les fichiers, mettre à jour les versions, apporter des modifications.
 Pour la création du tag : - j'ai utilisé la commande git tag -a -m version finie intro git gitinto [Modification journal]. J'ai eu en résultat too many arguments. Finalement, j'ai enlevé [Modification journal] et ça a fonctionné. POur vérifier si le tag a bien été créé j'ai fais <git tag>, ce qui m'a affiché le nom du tag gitinto. Il ne reste plus qu'à mettre <git push origin gitinto>
 
-#Le miniprojet :
+## Le miniprojet :
 
-Pour l'exercice 1 : 
+### Exercice 1 : 
 
 Le script de départ fourni se contentait de lire le fichier nommé «fr.txt» ligne par ligne et d’afficher son contenu. L’objectif était de le modifier pour le rendre plus flexible pour passer le nom du fichier contenant les URLs comme paramètre, ajouter la condition que l'utilisateur a bien fourni un argument (sinon il verra un message d'erreur s'afficher) , et afficher chaque URL précédé de son numéro de ligne et séparé par une tabulation.
 
@@ -21,7 +21,7 @@ Le script de départ fourni se contentait de lire le fichier nommé «fr.txt» l
 
 
 
-Pour l'exercice 2 :
+### Exercice 2 :
 
 Au départ, j'ai écrit un premier code :
 
@@ -45,5 +45,33 @@ Enfin, pour compter le nombre de mots, j'ai utilisé la commande wc vue en cours
 
 Pour la redirection des résultats, je l'ai fait depuis le terminal, en écrivant <./miniprojet.sh ../urls/fr.txt > ../tableaux/tableau-fr.tsv , avec un seul chevron ce qui a créé le fichier , étant donné qu'il n'existait pas.
 >
+### Correction miniprojet 1 : 
 
+- J'ai corrigé mon script en : 
+                - utilisant lynx à la place de curl pour compter le nombre de mots, ce qui a pris en compte uniquement le corps du texet sans les balises.
+                - Ajoutant les options -L -I pour récupérer les en-têtes et suivre les redirections. 
+    - Résultat : J'ai obtenu le bon nombre de mots et l'encodage du 3ème url s'est affiché (UTF-8) au lieu de (not mentionned)
+- J'ai créé le tag miniprojet-1-revu après avoir fait toutes les modifications.
+
+## Miniprojet 2 : 
+
+### Objectif du miniprojet2 :
+Convertir la sortie tabulaire TSV en un tableau HTML afin de pouvoir visualiser les résultats dans un navigateur web.
+
+### Etapes suivies : 
+
+- J’ai modifié le script miniprojet.sh pour produire du HTML à la place du TSV.
+- J’ai ajouté la structure HTML complète : DOCTYPE, <head>, <body>.
+- J’ai créé un tableau HTML comprenant :
+- Un en-tête avec les colonnes : Numéro, URL, Code HTTP, Encodage, Nombre de mots.
+- Une ligne par URL analysée.
+- J’ai supprimé le fichier TSV du dépôt.
+- J’ai généré le fichier tableau-fr.html, qui peut être ouvert dans n’importe quel navigateur.
+
+### Changements par rapport au mini-projet 1
+
+- J’ai remplacé echo -e "...\t..." par des balises HTML <tr> et <td>.
+- J’ai ajouté l’en-tête HTML avec l’attribut charset UTF-8.
+- J’ai ajouté un titre <h1> pour le tableau.
+- J’ai utilisé border="1" pour afficher les bordures du tableau.
 
