@@ -1,14 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="UTF-8">
     <title>Accueil Mini-Projet</title>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <style>
+      body {
+        background: #f8f5f2;
+      }
+      .hero {
+        background: linear-gradient(135deg, #faf6ee 60%, #0d2543 100%);
+        color: #2d170f;
+      }
+      .box {
+        background: #fffdfa;
+        border-radius: 0.75rem;
+        border: 1px solid #e3dfd9;
+      }
+      a.button {
+        background: #bfae99;
+        color: #0d2543;
+      }
+      a.button:hover {
+        background: #0d2543;
+        color: #fffdfa;
+      }
+      .subtitle {
+        color: #75604b;
+      }
+    </style>
   </head>
   <body>
-    <h1>MiniProjet de programmation</h1>
-    <p>Ce mini-projet analyse la structure de 10 pages web, affiche leur code HTTP, leur encodage et le nombre de mots du texte pour chaque URL, puis récupère ces résultats sous forme de tableau.</p>
-    <a href="miniprojet/tableaux/tableau-fr.html">Accéder au tableau des résultats</a>
-
+    <section class="hero is-medium is-bold">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title">Mini-Projet de Programmation</h1>
+          <h2 class="subtitle">Analyse de pages web</h2>
+        </div>
+      </div>
+    </section>
+    <div class="container my-6">
+      <div class="box">
+        <p>
+          Ce mini-projet analyse la structure de 10 pages web, affiche leur code HTTP, leur encodage et le nombre de mots du texte pour chaque URL, puis récupère ces résultats sous forme de tableau.
+        </p>
+        <div class="has-text-centered mt-5">
+          <a class="button is-medium is-rounded" href="miniprojet/tableaux/tableau-fr.html">
+            Accéder au tableau des résultats
+          </a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
