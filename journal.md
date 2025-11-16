@@ -73,5 +73,20 @@ Convertir la sortie tabulaire TSV en un tableau HTML afin de pouvoir visualiser 
 - J’ai remplacé echo -e "...\t..." par des balises HTML <tr> et <td>.
 - J’ai ajouté l’en-tête HTML avec l’attribut charset UTF-8.
 - J’ai ajouté un titre <h1> pour le tableau.
-- J’ai utilisé border="1" pour afficher les bordures du tableau.
+- J’ai utilisé \border="1\ pour afficher les bordures du tableau.
 
+## Miniprojet 03 : 
+
+### Etapes de réalisation :
+
+- J’ai d’abord créé le fichier index.html sans aucun style comem dans la consigne. Je l’ai ensuite testé en local, mais le lien vers le tableau ne fonctionnait pas à cause d’une erreur dans le chemin. Après correction, la page s’est affichée correctement.
+
+- J’ai ensuite poussé ce premier fichier sur GitHub pour générer la GitHub Page du mini-projet. Le site a bien été déployé, mais à ce stade je n'avais pas modifié les scripts pour qu'un style soit appliqué.
+
+- Par la suite, j’ai commencé à modifier le style de index.html et du script miniprojet.sh. Pour éviter de commettre des erreurs dans les fichiers originaux (c'était très utile, car toutes les erreurs et les difficultés rencontrées , je les ai reglé sur mes fichiers brouillons en amont), j’ai d’abord travaillé sur des copies afin de tester librement différentes idées de mise en forme, en m’appuyant sur les cours html-css et GitHub Pages. C’est à ce moment-là que j’ai ajouté l’appel à Bulma et appliqué les styles que je souhaitais.
+
+- J’ai rencontré plusieurs difficultés, notamment des problèmes de chemins qui m’empêchaient d’accéder au tableau depuis la page d’accueil. J’ai également repéré quelques erreurs dans les balises HTML que j’ai corrigées dans mes fichiers d’essai, toujours dans le but de ne pas reproduire les mêmes erreurs dans les fichiers présents dans PPE2025.
+
+- Après plusieurs tests, et une fois que j'ai obtenu un style qppréciable et vérifié que tout fonctionnait correctement, j’ai copié le contenu final depuis mes fichiers brouillons vers les fichiers originaux index.html et miniprojet.sh présents dans le dépôt PPE2025. J'ai veillé à adapter les chemins pour qu'ils correspondent à l'arborescence dans PPE2025. J’ai ensuite ré-exécuté le script miniprojet.sh afin de générer le fichier tableau-fr.html avec le style voulu.
+
+- Pour terminer, j’ai commité puis poussé toutes les modifications sur GitHub. Après quelques minutes d’attente, j’ai vérifié le déploiement dans l’onglet Actions, puis j’ai ouvert le lien GitHub Pages pour m’assurer que tout s’affichait correctement et que les pages étaient bien stylées.
