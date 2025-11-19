@@ -85,25 +85,25 @@ Convertir la sortie tabulaire TSV en un tableau HTML afin de pouvoir visualiser 
 
 - Par la suite, j’ai commencé à modifier le style de index.html et du script miniprojet.sh. Pour éviter de commettre des erreurs dans les fichiers originaux (c'était très utile, car toutes les erreurs et les difficultés rencontrées , je les ai reglé sur mes fichiers brouillons en amont), j’ai d’abord travaillé sur des copies afin de tester librement différentes idées de mise en forme, en m’appuyant sur les cours html-css et GitHub Pages. C’est à ce moment-là que j’ai ajouté l’appel à Bulma et appliqué les styles que je souhaitais. Par ailleurs, pour obtenir un rendu plus esthétique et harmonisé avec les couleurs que je souhaitais utiliser, j’ai ajouté un CSS personnalisé qui modifie certains styles par défaut de Bulma, notamment :
 
-        - Body:
-            Ajout d’une couleur de fond personnalisée (#f8f5f2) qui remplace le fond neutre par défaut.
+- Body:
+    Ajout d’une couleur de fond personnalisée (#f8f5f2) qui remplace le fond neutre par défaut.
 
-        - Section .hero:
-            Remplacement du fond original par un dégradé personnalisé.
-            Changement de la couleur du texte de la zone héro.
-            Cela modifie donc l’apparence standard fournie par Bulma.
+- Section .hero:
+    Remplacement du fond original par un dégradé personnalisé.
+    Changement de la couleur du texte de la zone héro.
+    Cela modifie donc l’apparence standard fournie par Bulma.
 
-        - Composant .box:
-            Couleur de fond légèrement différente du blanc de Bulma.
-            Ajout d’une bordure personnalisée.
-            Border-radius augmenté pour arrondir davantage les coins. Cela modifie l’apparence par défaut des boîtes Bulma.
+- Composant .box:
+    Couleur de fond légèrement différente du blanc de Bulma.
+    Ajout d’une bordure personnalisée.
+    Border-radius augmenté pour arrondir davantage les coins. Cela modifie l’apparence par défaut des boîtes Bulma.
 
-        - Boutons (a.button):
-            Modification de la couleur de fond.
-            Modification de la couleur du texte.
-            Style du survol (hover) personnalisé. Ces changements remplacent le style standard des boutons Bulma.
+- Boutons (a.button):
+    Modification de la couleur de fond.
+    Modification de la couleur du texte.
+    Style du survol (hover) personnalisé. Ces changements remplacent le style standard des boutons Bulma.
 
-        - Sous-titres (.subtitle): Changement de la couleur du texte par défaut des sous-titres pour correspondre à ce que je voulais.
+- Sous-titres (.subtitle): Changement de la couleur du texte par défaut des sous-titres pour correspondre à ce que je voulais.
 
 Pour trouver les codes des couleurs que je voulais et du css personnalisé, j'ai cherché sur internet. 
 
