@@ -112,3 +112,20 @@ Pour trouver les codes des couleurs que je voulais et du css personnalisé, j'ai
 - Après plusieurs tests, et une fois que j'ai obtenu un style qppréciable et vérifié que tout fonctionnait correctement, j’ai copié le contenu final depuis mes fichiers brouillons vers les fichiers originaux index.html et miniprojet.sh présents dans le dépôt PPE2025. J'ai veillé à adapter les chemins pour qu'ils correspondent à l'arborescence dans PPE2025. J’ai ensuite ré-exécuté le script miniprojet.sh afin de générer le fichier tableau-fr.html avec le style voulu.
 
 - Pour terminer, j’ai commité puis poussé toutes les modifications sur GitHub. Après quelques minutes d’attente, j’ai vérifié le déploiement dans l’onglet Actions, puis j’ai ouvert le lien GitHub Pages pour m’assurer que tout s’affichait correctement et que les pages étaient bien stylées.
+
+## Projet final : 
+- J'ai commencé par recherché les liens en fonction des hypothèses émises. A savoir qu'en français, j'ai commencé par trouver des liens du mot "culture" dans le domaine de l'agriculture (contexte1), puis dans l'acception de coutumes et traditions (contexte2), puis dans le sens de culture générale, connaissance du monde (contexte3)
+- Ce qui ets intéressant, c'est que j'ai également trouvé des contextes ou le mot culture est en collocation comme dans les articles sur la "culture de masse" dont l'équivalent anglais est "pop culture" c'est bien pour l'analyse comparative des deux langues. 
+- J'ai également créé le fichier index html de la page avec une page d'accueil ou on trouve la définition première du mot culture dans chaque langue. La justification du choix du mot ainsi que les hypothèses émises. 
+- pour l'instant le site contient une barre avec trois pages l'accueil, les tableaux et les nuages de mots. Les tableaux et nuages de mots sont pour l'instant vide car nous n'avons pas encore finalisé le script de l'analyse. 
+- Pour ce qui est du style de la page, j'ai fait un premier essaie en applicant un style css personnalisé (ce n'est peut-être pas le style final - à voir -):
+
+        - Objectif général : on voulait un design simple, lisible et épuré pour mettre en valeur le contenu.
+
+        - Palette de couleurs : rose pâle pour les sections, blanc pour le fond général, noir pour le texte et les titres, pour un bon contraste et lisibilité.
+
+        - Typographie : Times New Roman, c'ets la police qui est utilisé généralement pour un style académique et elle a un rendu plutôt joli.
+
+        - Structure et lisibilité : blocs clairs et espacés,utilisation de Flexbox pour aligner les définitions sur une meme ligne comme des sortes de colonnes.
+        - Menu et navigation : barre simple et fonctionnelle avec dropdowns au survol pour tableaux et nuages de mots ; lien Accueil pointant vers la page principale. J'ai beaucoup cherché pour réussir à avoir cet effet de "faire dérouler le menu quand on passe la souris sur un onglet" (pour tableaux, par exemple, quand on passe la souris, on vois un menu se dérouler avec le tableau de chaque langue). Je suis assez satisfaite d'avoir appris à avoir cet effet. Et aussi à utiliser flex pour aligner. 
+- Pour l'instant le CSS n'ets pas final, on verra par la suite si on le garde ou on modifie.  
