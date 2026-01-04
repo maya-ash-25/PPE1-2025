@@ -128,4 +128,19 @@ Pour trouver les codes des couleurs que je voulais et du css personnalisé, j'ai
 
         - Structure et lisibilité : blocs clairs et espacés,utilisation de Flexbox pour aligner les définitions sur une meme ligne comme des sortes de colonnes.
         - Menu et navigation : barre simple et fonctionnelle avec dropdowns au survol pour tableaux et nuages de mots ; lien Accueil pointant vers la page principale. J'ai beaucoup cherché pour réussir à avoir cet effet de "faire dérouler le menu quand on passe la souris sur un onglet" (pour tableaux, par exemple, quand on passe la souris, on vois un menu se dérouler avec le tableau de chaque langue). Je suis assez satisfaite d'avoir appris à avoir cet effet. Et aussi à utiliser flex pour aligner. 
-- Pour l'instant le CSS n'ets pas final, on verra par la suite si on le garde ou on modifie.  
+- Pour l'instant le CSS n'ets pas final, on verra par la suite si on le garde ou on modifie. 
+## Suite des étapes : 
+- Pour l'execution du script et lagénération des nuages de mots j'ai préféré travailler sur une copie du projet en lcoal. Etant donné que nous avons réadapter le script à plusieurs reprises, cette manière de travailler étaient adéquate pour éviter les conflits et des pushs qui n'étaient pas nécessaire. 
+- Au départ il y avait un soucis avec la detection du mot culture car il était détecté même dans les mots "clturel" et "culturelles", mais nous avons trouvé que cela était relatif aux expressions régulières qu'on avait utilisé et qui n'étaitpas adapté, une fois corrigé, seul les mots "culture" et "cultures" étaient détectées. 
+- Pour les nuages de mots : j'ai testé une première fois le script sur les dump textuel mais il y avait trop de bruits dans le nuage, j'ai qlors essayé sur le concordancier et le résultat était catastrophique il n ya vait que les balises qui apparaissaient dans le nuage. 
+De ce fait on ajouté au script pour généer un dossier contextes, et nous avons adapté le script python de façon à ce que le nuage de mots soient généré à partir des fichiers contextes. Le résultat étaient largement plus satisfaisant mais il restaient le problème des grammèmes qui n'avaient pas une valeur sémantique importante vis à vis de notre analyse, alors j'ai intégré au script une liste de stopwords que j'adaptais au fur et à mesure pour obtenir un nuage de mots satisfaisant. 
+- Une fois la liste de stopwords pauffiné, dans le strois langues, j'ai généré les nuages de mots pour le corpus français et anglais, en utilisant un environnement virtuel ( que j'ai ajouté dans gitignore pour ne pas qu'il soit pushé avec les fichiers). 
+
+- Exécution du script sur le corpus fr : j'ai remarqué que 4 urls n'étaient pas traités,j'ai don crajouté des liens pour avoir un corpus conséquent. J'ai remarqué qu'un des liens n'arrivait pas à être traité parcequ'il s'agissait d'un PDF, mais je l'ai tout de même laissé car je troubais que c'était pertinent de garder ce cas. 
+Finalement une fois le cript finalisé je l'ai réexécuté une dernière fois sur les corpus fr et eng pour générer les tableaux.
+
+- Pour le site : j'ai créé la page "à propos de", qui contient les membres d el'équipe et la conclusion de l'analyse sémantique basé sur les concordanciers et les nuages de mots (principalement). 
+- Pour le css : Nous avons finalement changé quelques détails notamment les couleurs car à force de travailler sur du rose ça faisait mal au yeux nous avons donc choisis des nuances plus sobres tout en gradant un style très simpliste. 
+- Au fil des étapes nous avons corrigé les coquilles présentes dans les différentes pages html notamment les chemins et liens. 
+- Nous avons finalisé le tout en executant le script sur les trois corpus , on a push tous les fichiers ainsi que les nuages de mots et les pages html du site. 
+- Pour finir, nous avons archivé notre projet comme demandé. 
